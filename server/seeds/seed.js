@@ -1,13 +1,17 @@
 const db = require('../config/connection');
-const { User } = require('../models');
+const { Player } = require('../models');
 
-const userData = require('./userData.json');
+const playerSeeds = require('./playerData.json');
+
 
 db.once('open', async () => {
-  await User.deleteMany({});
+  try {
+    await Player.deleteMany({});
+    await Player.create(playerSeeds);
 
-  const Users = await User.insertMany(userData);
-
-  console.log('Users seeded!');
-  process.exit(0);
+    console.log('all done!');
+    process.exit(0);
+  } catch (err) {
+    throw err;
+  }
 });
