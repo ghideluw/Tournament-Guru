@@ -1,8 +1,16 @@
 import React from 'react';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Home from './pages/Home';
-import Matchup from './pages/Matchup';
-import Vote from './pages/Vote';
+import Profile from './pages/Profile';
+import ManagerDash from './pages/ManagerDash';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
+
 
 function App() {
   return (
@@ -14,11 +22,11 @@ function App() {
             element={<Home />} 
           />
           <Route 
-            path="/matchup" 
+            path="/profile" 
             element={<Matchup />} 
           />
           <Route 
-            path="/matchup/:id" 
+            path="/managerDash/:id" 
             element={<Vote />} 
           />
         </Routes>
@@ -26,5 +34,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
