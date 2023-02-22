@@ -16,26 +16,11 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <Router>
-      <div className="flex-column justify-center align-center min-100-vh bg-primary">
-        <Routes>
-          <Route 
-            path="/" 
-            element={<Home />} 
-          />
-          <Route 
-            path="/profile" 
-            element={<Matchup />} 
-          />
-          <Route 
-            path="/managerDash/:id" 
-            element={<Vote />} 
-          />
-        </Routes>
-      </div>
-    </Router>
+    <div className="flex-column justify-flex-start min-100-vh">
+      <Header></Header>
+      <Footer></Footer>
+  </div>
   );
 }
-
 
 export default App;
