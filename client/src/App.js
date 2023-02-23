@@ -16,11 +16,29 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="flex-column justify-flex-start min-100-vh">
-      <Header></Header>
-      <Footer></Footer>
-  </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route 
+                path="/" 
+                element={<Home />} 
+                />
+     Create a route to display a single player based on its `playerId` provided in the URL
+     <Route 
+                path="/players/:playerId" 
+                element={<SinglePlayer />} 
+              />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 
 export default App;
+
