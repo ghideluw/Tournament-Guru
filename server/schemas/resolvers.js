@@ -1,4 +1,3 @@
-
 const { Player } = require('../models');
 
 const resolvers = {
@@ -40,6 +39,5 @@ const resolvers = {
     },
   },
 };
-
 
 module.exports = resolvers;
